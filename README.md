@@ -1,4 +1,12 @@
-# Getting Started with Create React App
+The Muse
+
+OpenAI powered chatbot designed to inspire, motivate, and guide you during key moments of your creative process. 
+
+Type your message, question, or predicament in the chat window and press send using the symbol on the bottom right of the chat section. 
+Refine your prompts as you learn to grow alongside "The Muse." 
+
+
+
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
