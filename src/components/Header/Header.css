@@ -1,0 +1,52 @@
+.App-header {
+    
+    min-height: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    position : relative;
+    
+}
+.App-header__title {
+    position: relative;
+    top: -30px; 
+    font-size: 3.5rem;
+    font-family: 'fantasy';
+    background: linear-gradient(to right, #f8f8d0, #dabb09);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}  
+.App-header__subtitle {
+  position: relative;
+  top: -100px;
+  color:rgb(139, 228, 253);
+  text-shadow: 1px 1px 1px #282828;
+  font-size: 1rem;
+  text-shadow: #f8f8d0;
+}
+
+/* Apply smaller font size on smaller screens */
+@media (max-width: 768px) {
+  .App-header__title {
+    font-size: 2.8rem;
+  }
+
+  .App-header__subtitle {
+    font-size: 1.0rem;
+    top: -4.5rem; /* Adjust the top property as needed */
+  }
+}
+
+/* Apply larger font size on larger screens */
+@media (min-width: 1200px) {
+  .App-header__title {
+    font-size: 4.5rem;
+  }
+
+  .App-header__subtitle {
+    font-size: 1.6rem;
+    
+  }
+}

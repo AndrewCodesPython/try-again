@@ -1,0 +1,145 @@
+.Form {
+    display: flex;
+    flex-direction: column;
+    max-width: 600px;
+    margin: 0 auto;
+    background: linear-gradient(to bottom, #182234, #3e3878);
+    height: 300px;
+    border-bottom-left-radius: 10px;
+}
+
+.form__input-container {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+.form__input-container label {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+
+.form__input-container input,
+.form__input-container textarea {
+    width: 100%;
+    padding: 10px;
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+}
+button[type='submit'] {
+  background-color: #f2f2f2;
+  color: #333;
+  padding: 10px;
+  font-size: 1.2rem;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+  position: relative;
+}
+
+button[type='submit']::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-45deg);
+  width: 10px;
+  height: 10px;
+  border-top: 2px solid #333;
+  border-right: 2px solid #333;
+}
+
+button[type='submit']:hover {
+  background-color: #d9d9d9;
+}
+.Form__input {
+    width: 75%;
+    height: 170px;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    background-color: #f2f2f2;
+    color: #333;
+    resize: none; 
+}
+
+.Form__input::placeholder {
+    color: #999;
+}
+
+.Form__input:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px #007bff;
+}
+
+.chat-send-btn {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  position: relative;
+  left: 10px;
+  top: -10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s ease-in-out;
+  margin-left: 540px;
+}
+
+.chat-send-btn:hover {
+  background-color: #0069d9;
+}
+
+.chat-send-btn::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: -20px;
+  transform: translateY(-50%);
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  border-right: 10px solid #007bff;
+}
+
+/* Add paper plane icon to chat-send-btn */
+.chat-send-btn i {
+  margin-right: 10px;
+}
+
+/* Apply smaller width and font size on smaller screens */
+@media (max-width: 768px) {
+  .Form {
+    width: 100%;
+  }
+
+  .form__label {
+    font-size: 1.2rem;
+  }
+
+  .form__input {
+    font-size: 1rem;
+  }
+}
+
+/* Apply larger width and font size on larger screens */
+@media (min-width: 1200px) {
+  .Form {
+    width: 60%;
+  }
+
+  .form__label {
+    font-size: 1.8rem;
+  }
+
+  .form__input {
+    font-size: 1.5rem;
+  }
+}
