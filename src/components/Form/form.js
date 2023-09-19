@@ -2,7 +2,7 @@ import openai from 'openai';
 import React, { useState } from 'react';
 import './form.css';
 
-const API_KEY = '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'
+const API_KEY = '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'
 function Form() {
     const [question, setQuestion] = useState('');
     const [response, setResponse] = useState('');
@@ -11,13 +11,13 @@ function Form() {
     const handleSubmit = async (event) => {
         event.preventDefault();
     try {
-        const response = await openai.Completion.create({
-            engine: 'gpt3',
+        const response = await openai.createCompletion({
+            model: 'gpt-3.5-turbo',
             prompt: question,
             max_tokens: 100,
             n: 1,
             stop: '\n',
-            temperature: .9,
+            temperature: 1.17,
             headers: {
                 Authorization: `Bearer ${API_KEY}`,
             }
@@ -38,19 +38,25 @@ function Form() {
 
 
     return (
-        <form className="Form" onSubmit={handleSubmit}>
-          <div className="Form__input-container">
-            <textarea
-              className="Form__input"
-              placeholder="Message The Muse"
-              
-            />
-            <button type="submit" className="chat-send-btn">
-              <i className="fas fa-paper-plane"></i>
-            </button>
+      <form className="Form" onSubmit={handleSubmit}>
+        <div className="Form__input-container">
+          <textarea
+            className="Form__input"
+            placeholder="Message The Muse"
+            value={question}
+            onChange={(event) => setQuestion(event.target.value)}
+          />
+          <button type="submit" className="chat-send-btn">
+            <i className="fas fa-paper-plane"></i>
+          </button>
+        </div>
+        {response && (
+          <div className="Form__response">
+            <p>{response}</p>
           </div>
-        </form>
-      );
+        )}
+      </form>
+    );
     }
     
     export default Form;

@@ -117,7 +117,7 @@ button[type='submit']:hover {
 /* Apply smaller width and font size on smaller screens */
 @media (max-width: 768px) {
   .Form {
-    width: 100%;
+    width: 90%;
   }
 
   .form__label {
@@ -127,6 +127,10 @@ button[type='submit']:hover {
   .form__input {
     font-size: 1rem;
   }
+  .chat-send-btn i {
+    margin-right: 5px;
+  }
+  
 }
 
 /* Apply larger width and font size on larger screens */
