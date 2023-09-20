@@ -1,8 +1,12 @@
-import openai from 'openai';
+import OpenAI from 'openai'; 
 import React, { useState } from 'react';
 import './form.css';
 
-const API_KEY = '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'
+const openai = new OpenAI({
+  apiKey: process.env.OPENAI_API_KEY,
+});
+
+
 function Form() {
     const [question, setQuestion] = useState('');
     const [response, setResponse] = useState('');
@@ -11,30 +15,26 @@ function Form() {
     const handleSubmit = async (event) => {
         event.preventDefault();
     try {
-        const response = await openai.createCompletion({
+        const response = await openai.chat.completions.create({
             model: 'gpt-3.5-turbo',
-            prompt: question,
+            messages: [{ role: 'user', content: 'Hello world' }],
             max_tokens: 100,
             n: 1,
             stop: '\n',
             temperature: 1.17,
-            headers: {
-                Authorization: `Bearer ${API_KEY}`,
-            }
+            
 });
 
         if (response.choices && response.choices.length > 0) {
-            setResponse(response.choices[0].text);
+            setResponse(response.choices[0].message);
         } else {
             setResponse('Sorry, I could not generate a response.');
         }
-} catch (error) {
+      } catch (error) {
+        console.error(error);
+      }
 
-    console.error(error);
-    setResponse('Error generating response.');
-}
-
-    };
+};
 
 
     return (
@@ -60,3 +60,4 @@ function Form() {
     }
     
     export default Form;
+
